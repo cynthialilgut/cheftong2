@@ -5,13 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Chifa Chef Tong | Cocina Fusión en Barranco</title>
   
-  <!-- Tipografías de Google Fonts: Opción A -->
+  <!-- Tipografías de Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Montserrat:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   
   <!-- Iconos FontAwesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- n8n Chat Widget CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
 
   <style>
     :root {
@@ -27,6 +30,14 @@
       --shadow-sm: 0 4px 12px rgba(139, 30, 27, 0.08);
       --shadow-md: 0 8px 24px rgba(139, 30, 27, 0.12);
       --border-meander: rgba(139, 30, 27, 0.2);
+
+      /* Personalización de colores para el Chatbot de n8n */
+      --chat--color-primary: #8B1E1B;
+      --chat--color-primary-shade-50: #731816;
+      --chat--color-primary-light: #FAF6EF;
+      --chat--color-secondary: #C5A059;
+      --chat--toggle--background: #8B1E1B;
+      --chat--toggle--color: #FFFFFF;
     }
 
     * {
@@ -564,179 +575,6 @@
       display: block;
     }
 
-    /* BOT CONVERSACIONAL (CHATBOT) */
-    .chat-widget-btn {
-      position: fixed;
-      bottom: 25px;
-      right: 25px;
-      background: var(--red-imperial);
-      color: var(--white);
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      border: 2px solid var(--gold-accent);
-      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-      cursor: pointer;
-      z-index: 1200;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.5rem;
-      transition: transform 0.3s;
-    }
-
-    .chat-widget-btn:hover {
-      transform: scale(1.1);
-      background: var(--red-bright);
-    }
-
-    .chat-window {
-      position: fixed;
-      bottom: 95px;
-      right: 25px;
-      width: 360px;
-      height: 500px;
-      max-width: 90vw;
-      background: var(--bg-card);
-      border: 2px solid var(--gold-accent);
-      border-radius: 16px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
-      z-index: 1200;
-      display: none;
-      flex-direction: column;
-      overflow: hidden;
-    }
-
-    .chat-window.active {
-      display: flex;
-    }
-
-    .chat-header {
-      background: var(--red-imperial);
-      color: var(--white);
-      padding: 12px 16px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-bottom: 2px solid var(--gold-accent);
-    }
-
-    .chat-header-title {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .chat-header-title i {
-      font-size: 1.2rem;
-      color: var(--gold-light);
-    }
-
-    .chat-header h4 {
-      font-size: 0.95rem;
-      margin: 0;
-    }
-
-    .chat-header span {
-      font-size: 0.75rem;
-      color: var(--gold-light);
-      display: block;
-    }
-
-    .chat-close {
-      background: none;
-      border: none;
-      color: var(--white);
-      font-size: 1.2rem;
-      cursor: pointer;
-    }
-
-    .chat-body {
-      flex-grow: 1;
-      padding: 15px;
-      overflow-y: auto;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      background-color: var(--bg-cream);
-    }
-
-    .chat-msg {
-      max-width: 80%;
-      padding: 10px 14px;
-      border-radius: 12px;
-      font-size: 0.88rem;
-      line-height: 1.4;
-    }
-
-    .chat-msg.bot {
-      background: var(--white);
-      color: var(--text-dark);
-      align-self: flex-start;
-      border-bottom-left-radius: 2px;
-      border: 1px solid rgba(139, 30, 27, 0.1);
-    }
-
-    .chat-msg.user {
-      background: var(--red-imperial);
-      color: var(--white);
-      align-self: flex-end;
-      border-bottom-right-radius: 2px;
-    }
-
-    .chat-quick-replies {
-      display: flex;
-      gap: 6px;
-      flex-wrap: wrap;
-      margin-top: 4px;
-    }
-
-    .quick-btn {
-      background: var(--white);
-      border: 1px solid var(--gold-accent);
-      color: var(--red-imperial);
-      padding: 4px 10px;
-      border-radius: 12px;
-      font-size: 0.75rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: background 0.2s;
-    }
-
-    .quick-btn:hover {
-      background: var(--gold-light);
-    }
-
-    .chat-footer {
-      padding: 10px;
-      background: var(--bg-card);
-      border-top: 1px solid var(--border-meander);
-      display: flex;
-      gap: 8px;
-    }
-
-    .chat-input {
-      flex-grow: 1;
-      border: 1px solid var(--border-meander);
-      padding: 8px 12px;
-      border-radius: 20px;
-      font-size: 0.85rem;
-      outline: none;
-    }
-
-    .chat-send {
-      background: var(--red-imperial);
-      color: var(--white);
-      border: none;
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
     /* FOOTER */
     footer {
       background: #1F1916;
@@ -1087,40 +925,6 @@
     </div>
   </div>
 
-  <!-- BOT CONVERSACIONAL (CHATBOT WIDGET) -->
-  <button class="chat-widget-btn" onclick="toggleChat()">
-    <i class="fa-solid fa-comments"></i>
-  </button>
-
-  <div class="chat-window" id="chatWindow">
-    <div class="chat-header">
-      <div class="chat-header-title">
-        <i class="fa-solid fa-robot"></i>
-        <div>
-          <h4>Asistente Chef Tong</h4>
-          <span>En línea • Toma de Pedidos</span>
-        </div>
-      </div>
-      <button class="chat-close" onclick="toggleChat()">&times;</button>
-    </div>
-
-    <div class="chat-body" id="chatBody">
-      <div class="chat-msg bot">
-        ¡Hola! 👋 Soy el asistente virtual del **Chifa Chef Tong**. ¿En qué puedo ayudarte hoy?
-        <div class="chat-quick-replies">
-          <button class="quick-btn" onclick="handleQuickReply('Ver Menú Ejecutivo')">🍱 Menú Ejecutivo</button>
-          <button class="quick-btn" onclick="handleQuickReply('Hacer un pedido')">🛒 Hacer Pedido</button>
-          <button class="quick-btn" onclick="handleQuickReply('Horarios y Ubicación')">📍 Horarios y Dirección</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="chat-footer">
-      <input type="text" class="chat-input" id="chatInput" placeholder="Escribe tu consulta o plato..." onkeypress="handleKeyPress(event)">
-      <button class="chat-send" onclick="sendMessage()"><i class="fa-solid fa-paper-plane"></i></button>
-    </div>
-  </div>
-
   <!-- FOOTER -->
   <footer>
     <div class="footer-grid">
@@ -1148,23 +952,9 @@
     </div>
   </footer>
 
-  <!-- SCRIPT LÓGICA DE INTERACCIÓN Y CHATBOT -->
+  <!-- SCRIPT CARRITO DE COMPRAS -->
   <script>
     let cart = [];
-
-    // Base de datos del bot
-    const menuItems = [
-      { id: 'kamlu', name: 'Menú Kamlú Wantán', price: 22.00, category: 'menu' },
-      { id: 'verduras', name: 'Menú Pollo c/ Verduras', price: 22.00, category: 'menu' },
-      { id: 'tallarin', name: 'Menú Tallarín Saltado', price: 22.00, category: 'menu' },
-      { id: 'chijaukay', name: 'Menú Chijaukay', price: 22.00, category: 'menu' },
-      { id: 'lomo', name: 'Menú Lomo Saltado', price: 27.50, category: 'menu' },
-      { id: 'wantan', name: 'Wantán Frito (1 Docena)', price: 19.00, category: 'carta' },
-      { id: 'chaufa', name: 'Arroz Chaufa Especial', price: 26.90, category: 'carta' },
-      { id: 'festival', name: 'Festival Chifero', price: 79.50, category: 'carta' },
-      { id: 'sopa', name: 'Sopa Tong Especial', price: 25.00, category: 'carta' },
-      { id: 'banquete', name: 'Banquete Familiar', price: 289.00, category: 'banquete' }
-    ];
 
     function toggleCart() {
       document.getElementById('cartDrawer').classList.toggle('open');
@@ -1256,111 +1046,40 @@
 
       window.open(`https://wa.me/51950656797?text=${msg}`, '_blank');
     }
-
-    /* LÓGICA DEL CHATBOT CONVERSACIONAL */
-    function toggleChat() {
-      const chatWindow = document.getElementById('chatWindow');
-      chatWindow.classList.toggle('active');
-    }
-
-    function handleKeyPress(e) {
-      if (e.key === 'Enter') {
-        sendMessage();
-      }
-    }
-
-    function handleQuickReply(text) {
-      document.getElementById('chatInput').value = text;
-      sendMessage();
-    }
-
-    function appendUserMessage(text) {
-      const chatBody = document.getElementById('chatBody');
-      const msg = document.createElement('div');
-      msg.className = 'chat-msg user';
-      msg.textContent = text;
-      chatBody.appendChild(msg);
-      chatBody.scrollTop = chatBody.scrollHeight;
-    }
-
-    function appendBotMessage(text, quickReplies = []) {
-      const chatBody = document.getElementById('chatBody');
-      const msg = document.createElement('div');
-      msg.className = 'chat-msg bot';
-      msg.innerHTML = text;
-
-      if (quickReplies.length > 0) {
-        const repliesContainer = document.createElement('div');
-        repliesContainer.className = 'chat-quick-replies';
-        quickReplies.forEach(qr => {
-          const btn = document.createElement('button');
-          btn.className = 'quick-btn';
-          btn.textContent = qr.label;
-          btn.onclick = () => {
-            if (qr.action) qr.action();
-            else handleQuickReply(qr.value || qr.label);
-          };
-          repliesContainer.appendChild(btn);
-        });
-        msg.appendChild(repliesContainer);
-      }
-
-      chatBody.appendChild(msg);
-      chatBody.scrollTop = chatBody.scrollHeight;
-    }
-
-    function sendMessage() {
-      const input = document.getElementById('chatInput');
-      const text = input.value.trim();
-      if (!text) return;
-
-      appendUserMessage(text);
-      input.value = '';
-
-      setTimeout(() => {
-        processBotResponse(text.toLowerCase());
-      }, 500);
-    }
-
-    function processBotResponse(lowerText) {
-      if (lowerText.includes('menú') || lowerText.includes('menu') || lowerText.includes('ejecutivo')) {
-        appendBotMessage(
-          'Nuestros **Menús Ejecutivos** cuestan S/ 22.00 e incluyen entrada (Sopa Wantán o Wantán frito). ¿Te gustaría agregar alguno a tu pedido?',
-          [
-            { label: '➕ Kamlú Wantán (S/ 22)', action: () => { addToCart('Menú Kamlú Wantán', 22); appendBotMessage('¡Añadido Kamlú Wantán a tu carrito!'); } },
-            { label: '➕ Pollo c/ Verduras (S/ 22)', action: () => { addToCart('Menú Pollo c/ Verduras', 22); appendBotMessage('¡Añadido Pollo con Verduras!'); } },
-            { label: '➕ Chijaukay (S/ 22)', action: () => { addToCart('Menú Chijaukay', 22); appendBotMessage('¡Añadido Chijaukay al carrito!'); } }
-          ]
-        );
-      } else if (lowerText.includes('horario') || lowerText.includes('donde') || lowerText.includes('ubicacion') || lowerText.includes('direccion')) {
-        appendBotMessage('📍 Estamos ubicados en **Jr. Unión 140, Barranco**.<br>🕒 Atendemos de **Miércoles a Lunes de 12:00 PM a 10:00 PM** (Martes cerrado).');
-      } else if (lowerText.includes('chaufa') || lowerText.includes('arroz')) {
-        appendBotMessage('Tenemos nuestro delicioso **Arroz Chaufa Especial** salteado al Wok con pollo, cerdo char siu y langostinos por S/ 26.90.', [
-          { label: '➕ Agregar Chaufa Especial', action: () => { addToCart('Arroz Chaufa Especial', 26.90); appendBotMessage('¡Chaufa Especial agregado!'); } }
-        ]);
-      } else if (lowerText.includes('pedido') || lowerText.includes('comprar') || lowerText.includes('pagar') || lowerText.includes('carrito')) {
-        if (cart.length === 0) {
-          appendBotMessage('Tu carrito está vacío actualmente. ¿Qué te gustaría ordenar?');
-        } else {
-          let summary = 'Aquí tienes el resumen de tu pedido:<br><ul>';
-          let total = 0;
-          cart.forEach(item => {
-            summary += `<li>${item.qty}x ${item.title} - S/ ${(item.price * item.qty).toFixed(2)}</li>`;
-            total += item.price * item.qty;
-          });
-          summary += `</ul><br><strong>Total: S/ ${total.toFixed(2)}</strong>`;
-          appendBotMessage(summary, [
-            { label: '📲 Enviar a WhatsApp', action: () => sendWhatsApp() }
-          ]);
-        }
-      } else {
-        appendBotMessage('Puedo ayudarte a tomar tu pedido o brindarte información de la carta. ¿Qué plato deseas agregar?', [
-          { label: '🍱 Ver Menú', value: 'Ver Menú Ejecutivo' },
-          { label: '🍜 Ver Chaufa', value: 'Arroz Chaufa' },
-          { label: '🛒 Finalizar Pedido', value: 'Hacer un pedido' }
-        ]);
-      }
-    }
   </script>
+
+  <!-- SCRIPT DEL INTEGRACIÓN DE N8N CHATBOT -->
+  <script type="module">
+    import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+
+    createChat({
+      webhookUrl: 'https://cynthiaxyz.app.n8n.cloud/webhook/4ecfe80a-0d29-409f-b305-42bc212f9fc4/chat',
+      webhookConfig: {
+        method: 'POST',
+        headers: {}
+      },
+      target: '#n8n-chat',
+      mode: 'window',
+      chatInputKey: 'chatInput',
+      chatSessionKey: 'sessionId',
+      metadata: {},
+      showWelcomeScreen: false,
+      defaultLanguage: 'es',
+      initialMessages: [
+        '¡Hola! 🥢 Bienvenid@ al Chifa Chef Tong.',
+        '¿En qué te puedo ayudar hoy con tu pedido?'
+      ],
+      i18n: {
+        es: {
+          title: 'Asistente Chef Tong 💬',
+          subtitle: 'Atención al cliente y Pedidos',
+          footer: '',
+          getStarted: 'Iniciar Conversación',
+          inputPlaceholder: 'Escribe tu consulta o pedido...',
+        },
+      },
+    });
+  </script>
+
 </body>
 </html>
