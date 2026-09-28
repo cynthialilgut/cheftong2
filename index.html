@@ -1,0 +1,1366 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chifa Chef Tong | Cocina Fusión en Barranco</title>
+  
+  <!-- Tipografías de Google Fonts: Opción A -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Montserrat:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Iconos FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root {
+      --bg-cream: #F5EEE1;
+      --bg-card: #FAF6EF;
+      --red-imperial: #8B1E1B;
+      --red-bright: #D32F2F;
+      --gold-accent: #C5A059;
+      --gold-light: #E6C887;
+      --text-dark: #1F1916;
+      --text-muted: #5C524A;
+      --white: #FFFFFF;
+      --shadow-sm: 0 4px 12px rgba(139, 30, 27, 0.08);
+      --shadow-md: 0 8px 24px rgba(139, 30, 27, 0.12);
+      --border-meander: rgba(139, 30, 27, 0.2);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg-cream);
+      color: var(--text-dark);
+      background-image: radial-gradient(var(--border-meander) 1px, transparent 0);
+      background-size: 28px 28px;
+      line-height: 1.5;
+    }
+
+    h1, h2, .font-title {
+      font-family: 'Cinzel Decorative', serif;
+    }
+
+    h3, h4, .font-sub {
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    /* BARRA SUPERIOR Y HEADER */
+    .top-bar {
+      background: var(--red-imperial);
+      color: var(--white);
+      text-align: center;
+      padding: 8px 16px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .top-bar span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    header {
+      background: rgba(250, 246, 239, 0.95);
+      backdrop-filter: blur(8px);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 2px solid var(--gold-accent);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo-container img {
+      height: 65px;
+      object-fit: contain;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-dark);
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--red-imperial);
+    }
+
+    .cart-btn {
+      background: var(--red-imperial);
+      color: var(--white);
+      border: none;
+      padding: 10px 18px;
+      border-radius: 30px;
+      cursor: pointer;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.2s, background 0.3s;
+    }
+
+    .cart-btn:hover {
+      background: var(--red-bright);
+      transform: translateY(-2px);
+    }
+
+    .cart-count {
+      background: var(--gold-accent);
+      color: var(--text-dark);
+      border-radius: 50%;
+      padding: 2px 7px;
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+
+    /* HERO SECTION */
+    .hero {
+      position: relative;
+      padding: 60px 20px;
+      background: linear-gradient(135deg, #2A0807 0%, #541210 100%);
+      color: var(--white);
+      text-align: center;
+      overflow: hidden;
+      border-bottom: 4px solid var(--gold-accent);
+    }
+
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      color: var(--gold-light);
+      margin-bottom: 12px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: #E8D8C8;
+      margin-bottom: 24px;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .hero-badges {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .badge-hero {
+      background: rgba(197, 160, 89, 0.2);
+      border: 1px solid var(--gold-accent);
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--gold-light);
+    }
+
+    /* CONTENEDOR PRINCIPAL */
+    .main-container {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 35px;
+      position: relative;
+    }
+
+    .section-header h2 {
+      font-size: 2.2rem;
+      color: var(--red-imperial);
+      margin-bottom: 8px;
+    }
+
+    .section-header p {
+      color: var(--text-muted);
+      font-size: 1rem;
+    }
+
+    .section-divider {
+      width: 80px;
+      height: 3px;
+      background: var(--gold-accent);
+      margin: 12px auto 0;
+      position: relative;
+    }
+
+    /* CATEGORÍAS & FILTROS */
+    .category-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 30px;
+    }
+
+    .tab-btn {
+      background: var(--bg-card);
+      border: 1px solid var(--border-meander);
+      padding: 10px 20px;
+      border-radius: 25px;
+      cursor: pointer;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--text-dark);
+      transition: all 0.3s;
+    }
+
+    .tab-btn.active, .tab-btn:hover {
+      background: var(--red-imperial);
+      color: var(--white);
+      border-color: var(--red-imperial);
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* GRID DE PLATOS */
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 25px;
+    }
+
+    .menu-card {
+      background: var(--bg-card);
+      border-radius: 12px;
+      border: 1px solid rgba(139, 30, 27, 0.12);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.3s, box-shadow 0.3s;
+      position: relative;
+    }
+
+    .menu-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .card-img-wrap {
+      height: 180px;
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .card-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s;
+    }
+
+    .menu-card:hover .card-img-wrap img {
+      transform: scale(1.05);
+    }
+
+    .tag-badge {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: var(--red-imperial);
+      color: var(--white);
+      padding: 4px 10px;
+      border-radius: 12px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    .card-body {
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      justify-content: space-between;
+    }
+
+    .card-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 6px;
+    }
+
+    .card-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 15px;
+      line-height: 1.4;
+    }
+
+    .card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 10px;
+      border-top: 1px dashed rgba(139, 30, 27, 0.15);
+    }
+
+    .price {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--red-imperial);
+    }
+
+    .btn-add {
+      background: var(--gold-accent);
+      color: var(--text-dark);
+      border: none;
+      padding: 8px 14px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 0.85rem;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: background 0.3s;
+    }
+
+    .btn-add:hover {
+      background: var(--gold-light);
+    }
+
+    /* BANQUETES & PROMOS */
+    .promo-banner {
+      background: linear-gradient(135deg, #8B1E1B 0%, #5E1210 100%);
+      color: var(--white);
+      border-radius: 16px;
+      padding: 30px;
+      margin: 40px 0;
+      border: 2px solid var(--gold-accent);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .promo-info h3 {
+      font-size: 1.8rem;
+      color: var(--gold-light);
+      margin-bottom: 8px;
+    }
+
+    .promo-info p {
+      font-size: 1rem;
+      color: #F3E5D8;
+    }
+
+    /* SECCIÓN CHEF & HISTORIA */
+    .about-section {
+      background: var(--bg-card);
+      border-radius: 16px;
+      padding: 40px;
+      margin: 50px 0;
+      border: 1px solid var(--border-meander);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .about-img {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      border: 3px solid var(--gold-accent);
+    }
+
+    .about-img img {
+      width: 100%;
+      height: 380px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .about-text h3 {
+      font-size: 1.8rem;
+      color: var(--red-imperial);
+      margin-bottom: 12px;
+    }
+
+    .about-text p {
+      color: var(--text-muted);
+      margin-bottom: 16px;
+      font-size: 0.95rem;
+    }
+
+    .mascot-badge {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--bg-cream);
+      padding: 12px;
+      border-radius: 10px;
+      border: 1px dashed var(--gold-accent);
+      margin-top: 15px;
+    }
+
+    /* CARRITO LATERAL (DRAWER) */
+    .cart-drawer {
+      position: fixed;
+      top: 0;
+      right: -420px;
+      width: 100%;
+      max-width: 400px;
+      height: 100vh;
+      background: var(--bg-card);
+      z-index: 2000;
+      box-shadow: -5px 0 25px rgba(0,0,0,0.2);
+      transition: right 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .cart-drawer.open {
+      right: 0;
+    }
+
+    .cart-header {
+      background: var(--red-imperial);
+      color: var(--white);
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .cart-header h3 {
+      font-size: 1.2rem;
+    }
+
+    .close-cart {
+      background: none;
+      border: none;
+      color: var(--white);
+      font-size: 1.4rem;
+      cursor: pointer;
+    }
+
+    .cart-items {
+      padding: 20px;
+      flex-grow: 1;
+      overflow-y: auto;
+    }
+
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+    }
+
+    .cart-item-title {
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+
+    .cart-item-price {
+      color: var(--red-imperial);
+      font-weight: 600;
+      font-size: 0.85rem;
+    }
+
+    .cart-footer {
+      padding: 20px;
+      background: var(--bg-cream);
+      border-top: 2px solid var(--gold-accent);
+    }
+
+    .total-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 15px;
+      color: var(--red-imperial);
+    }
+
+    .btn-send-wa {
+      width: 100%;
+      background: #25D366;
+      color: var(--white);
+      border: none;
+      padding: 14px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: background 0.3s;
+    }
+
+    .btn-send-wa:hover {
+      background: #1EBE5D;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0,0,0,0.5);
+      z-index: 1500;
+      display: none;
+    }
+
+    .overlay.active {
+      display: block;
+    }
+
+    /* BOT CONVERSACIONAL (CHATBOT) */
+    .chat-widget-btn {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background: var(--red-imperial);
+      color: var(--white);
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      border: 2px solid var(--gold-accent);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+      cursor: pointer;
+      z-index: 1200;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      transition: transform 0.3s;
+    }
+
+    .chat-widget-btn:hover {
+      transform: scale(1.1);
+      background: var(--red-bright);
+    }
+
+    .chat-window {
+      position: fixed;
+      bottom: 95px;
+      right: 25px;
+      width: 360px;
+      height: 500px;
+      max-width: 90vw;
+      background: var(--bg-card);
+      border: 2px solid var(--gold-accent);
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+      z-index: 1200;
+      display: none;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .chat-window.active {
+      display: flex;
+    }
+
+    .chat-header {
+      background: var(--red-imperial);
+      color: var(--white);
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 2px solid var(--gold-accent);
+    }
+
+    .chat-header-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .chat-header-title i {
+      font-size: 1.2rem;
+      color: var(--gold-light);
+    }
+
+    .chat-header h4 {
+      font-size: 0.95rem;
+      margin: 0;
+    }
+
+    .chat-header span {
+      font-size: 0.75rem;
+      color: var(--gold-light);
+      display: block;
+    }
+
+    .chat-close {
+      background: none;
+      border: none;
+      color: var(--white);
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+
+    .chat-body {
+      flex-grow: 1;
+      padding: 15px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      background-color: var(--bg-cream);
+    }
+
+    .chat-msg {
+      max-width: 80%;
+      padding: 10px 14px;
+      border-radius: 12px;
+      font-size: 0.88rem;
+      line-height: 1.4;
+    }
+
+    .chat-msg.bot {
+      background: var(--white);
+      color: var(--text-dark);
+      align-self: flex-start;
+      border-bottom-left-radius: 2px;
+      border: 1px solid rgba(139, 30, 27, 0.1);
+    }
+
+    .chat-msg.user {
+      background: var(--red-imperial);
+      color: var(--white);
+      align-self: flex-end;
+      border-bottom-right-radius: 2px;
+    }
+
+    .chat-quick-replies {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-top: 4px;
+    }
+
+    .quick-btn {
+      background: var(--white);
+      border: 1px solid var(--gold-accent);
+      color: var(--red-imperial);
+      padding: 4px 10px;
+      border-radius: 12px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .quick-btn:hover {
+      background: var(--gold-light);
+    }
+
+    .chat-footer {
+      padding: 10px;
+      background: var(--bg-card);
+      border-top: 1px solid var(--border-meander);
+      display: flex;
+      gap: 8px;
+    }
+
+    .chat-input {
+      flex-grow: 1;
+      border: 1px solid var(--border-meander);
+      padding: 8px 12px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      outline: none;
+    }
+
+    .chat-send {
+      background: var(--red-imperial);
+      color: var(--white);
+      border: none;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #1F1916;
+      color: #D3C5B5;
+      padding: 40px 20px 20px;
+      border-top: 3px solid var(--gold-accent);
+    }
+
+    .footer-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 30px;
+      margin-bottom: 30px;
+    }
+
+    .footer-col img {
+      height: 50px;
+      margin-bottom: 15px;
+      filter: brightness(0) invert(1);
+    }
+
+    .footer-col h4 {
+      color: var(--gold-light);
+      margin-bottom: 15px;
+      font-size: 1.1rem;
+    }
+
+    .footer-col p, .footer-col li {
+      font-size: 0.9rem;
+      margin-bottom: 8px;
+      list-style: none;
+    }
+
+    .copyright {
+      text-align: center;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      font-size: 0.8rem;
+      color: #8C8075;
+    }
+
+    @media (max-width: 768px) {
+      .about-section {
+        grid-template-columns: 1fr;
+      }
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .nav-links {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- BARRA SUPERIOR INFORMATIVA -->
+  <div class="top-bar">
+    <span><i class="fa-solid fa-location-dot"></i> Jr. Unión 140, Barranco</span>
+    <span><i class="fa-solid fa-clock"></i> Mié - Lun: 12:00 PM a 10:00 PM (Martes cerrado)</span>
+    <span><i class="fa-brands fa-whatsapp"></i> Delivery: 950 656 797</span>
+  </div>
+
+  <!-- HEADER -->
+  <header>
+    <div class="nav-container">
+      <div class="logo-container">
+        <img src="https://lh3.googleusercontent.com/d/1XyO3NnZ3Qz9EaXbKk0A_9Zp9-0L1bXp_" alt="Logo Chifa Chef Tong">
+      </div>
+      
+      <ul class="nav-links">
+        <li><a href="#menu">Menú Ejecutivo</a></li>
+        <li><a href="#carta">Carta Digital</a></li>
+        <li><a href="#banquetes">Banquetes</a></li>
+        <li><a href="#nosotros">Chef Juan Tong</a></li>
+      </ul>
+
+      <button class="cart-btn" onclick="toggleCart()">
+        <i class="fa-solid fa-basket-shopping"></i>
+        <span>Ver Pedido</span>
+        <span class="cart-count" id="cartCount">0</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>CHEF TONG</h1>
+      <p>Auténtica Cocina Fusión Chino-Peruana en Barranco</p>
+      <div class="hero-badges">
+        <div class="badge-hero"><i class="fa-solid fa-fire"></i> Chaufas al Wok</div>
+        <div class="badge-hero"><i class="fa-solid fa-utensils"></i> Menús Ejecutivos</div>
+        <div class="badge-hero"><i class="fa-solid fa-robot"></i> Asistente de Pedidos 24/7</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTENEDOR PRINCIPAL -->
+  <div class="main-container">
+
+    <!-- MENÚS EJECUTIVOS -->
+    <section id="menu" style="margin-bottom: 50px;">
+      <div class="section-header">
+        <h2>Opciones de Menú Ejecutivo</h2>
+        <p>Disponible de Lunes a Viernes (12:00 PM - 5:00 PM) | Incluye Sopa Wantán o Wantán Frito</p>
+        <div class="section-divider"></div>
+      </div>
+
+      <div class="menu-grid">
+        <!-- Menú 1 -->
+        <div class="menu-card">
+          <div class="card-img-wrap">
+            <span class="tag-badge">Menú 1</span>
+            <img src="https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=500&q=80" alt="Kamlú Wantán">
+          </div>
+          <div class="card-body">
+            <div>
+              <div class="card-title">Menú Kamlú Wantán</div>
+              <div class="card-desc">Salsa agridulce especial con Wantán crujiente + Entrada (Sopa o Wantán frito).</div>
+            </div>
+            <div class="card-footer">
+              <span class="price">S/ 22.00</span>
+              <button class="btn-add" onclick="addToCart('Menú Kamlú Wantán', 22.00)">+ Agregar</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Menú 2 -->
+        <div class="menu-card">
+          <div class="card-img-wrap">
+            <span class="tag-badge">Menú 2</span>
+            <img src="https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&w=500&q=80" alt="Pollo con Verduras">
+          </div>
+          <div class="card-body">
+            <div>
+              <div class="card-title">Menú Pollo c/ Verduras</div>
+              <div class="card-desc">Trozos de pollo salteados al Wok con verduras frescas de estación.</div>
+            </div>
+            <div class="card-footer">
+              <span class="price">S/ 22.00</span>
+              <button class="btn-add" onclick="addToCart('Menú Pollo c/ Verduras', 22.00)">+ Agregar</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Menú 3 -->
+        <div class="menu-card">
+          <div class="card-img-wrap">
+            <span class="tag-badge">Menú 3</span>
+            <img src="https://images.unsplash.com/photo-1585032226651-759b368d7246?auto=format&fit=crop&w=500&q=80" alt="Tallarín Saltado">
+          </div>
+          <div class="card-body">
+            <div>
+              <div class="card-title">Menú Tallarín Saltado</div>
+              <div class="card-desc">Fideos artesanales salteados con jugoso pollo y kion.</div>
+            </div>
+            <div class="card-footer">
+              <span class="price">S/ 22.00</span>
+              <button class="btn-add" onclick="addToCart('Menú Tallarín Saltado', 22.00)">+ Agregar</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Menú 4 -->
+        <div class="menu-card">
+          <div class="card-img-wrap">
+            <span class="tag-badge">Menú 4</span>
+            <img src="https://images.unsplash.com/photo-1525755662778-989d0524087e?auto=format&fit=crop&w=500&q=80" alt="Chijaukay">
+          </div>
+          <div class="card-body">
+            <div>
+              <div class="card-title">Menú Chijaukay</div>
+              <div class="card-desc">Pollo empanizado en salsa de ostión tradicional con Arroz Chaufa.</div>
+            </div>
+            <div class="card-footer">
+              <span class="price">S/ 22.00</span>
+              <button class="btn-add" onclick="addToCart('Menú Chijaukay', 22.00)">+ Agregar</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Menú 5 -->
+        <div class="menu-card">
+          <div class="card-img-wrap">
+            <span class="tag-badge">Especial</span>
+            <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=500&q=80" alt="Lomo Saltado">
+          </div>
+          <div class="card-body">
+            <div>
+              <div class="card-title">Menú Lomo Saltado</div>
+              <div class="card-desc">Cortes de carne seleccionados salteados al Wok fuego alto con papas crujientes.</div>
+            </div>
+            <div class="card-footer">
+              <span class="price">S/ 27.50</span>
+              <button class="btn-add" onclick="addToCart('Menú Lomo Saltado', 27.50)">+ Agregar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BANQUETE DESTACADO -->
+    <div class="promo-banner" id="banquetes">
+      <div class="promo-info">
+        <h3>Banquete Familiar Chef Tong</h3>
+        <p>Chijaukay + Kamlu Wantan + Tallarín Taypá + Chaufa Familiar (Pollo o Chancho)</p>
+      </div>
+      <div>
+        <span style="font-size: 2rem; font-weight: 700; color: var(--gold-light); margin-right: 15px;">S/ 289.00</span>
+        <button class="btn-add" style="padding: 12px 24px; font-size: 1rem;" onclick="addToCart('Banquete Familiar', 289.00)">Pedir Banquete</button>
+      </div>
+    </div>
+
+    <!-- CARTA DIGITAL CARTA COMPLETA -->
+    <section id="carta">
+      <div class="section-header">
+        <h2>Carta Digital</h2>
+        <p>Especialidades y Platos Tradicionales Chifa</p>
+        <div class="section-divider"></div>
+      </div>
+
+      <!-- TABS -->
+      <div class="category-tabs">
+        <button class="tab-btn active" onclick="filterMenu('todos')">Todos</button>
+        <button class="tab-btn" onclick="filterMenu('bocaditos')">Bocaditos</button>
+        <button class="tab-btn" onclick="filterMenu('chaufas')">Chaufas al Wok</button>
+        <button class="tab-btn" onclick="filterMenu('especiales')">Platos Especiales</button>
+        <button class="tab-btn" onclick="filterMenu('sopas')">Sopas</button>
+      </div>
+
+      <div class="menu-grid" id="cartaGrid">
+        <!-- Bocadito 1 -->
+        <div class="menu-card" data-category="bocaditos">
+          <div class="card-img-wrap">
+            <img src="https://images.unsplash.com/photo-1496116218417-1a781b1c416c?auto=format&fit=crop&w=500&q=80" alt="Wantán Frito">
+          </div>
+          <div class="card-body">
+            <div>
+              <div class="card-title">Wantán Frito (1 Docena)</div>
+              <div class="card-desc">Crujientes hojas de wantán rellenas con pollo, acompañadas de salsa tamarindo.</div>
+            </div>
+            <div class="card-footer">
+              <span class="price">S/ 19.00</span>
+              <button class="btn-add" onclick="addToCart('Wantán Frito (1 Docena)', 19.00)">+ Agregar</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Chaufa Especial -->
+        <div class="menu-card" data-category="chaufas">
+          <div class="card-img-wrap">
+            <img src="https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=500&q=80" alt="Chaufa Especial">
+          </div>
+          <div class="card-body">
+            <div>
+              <div class="card-title">Arroz Chaufa Especial</div>
+              <div class="card-desc">Salteado con pollo, cerdo char siu, langostinos y cebollita china.</div>
+            </div>
+            <div class="card-footer">
+              <span class="price">S/ 26.90</span>
+              <button class="btn-add" onclick="addToCart('Arroz Chaufa Especial', 26.90)">+ Agregar</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Especial 1 -->
+        <div class="menu-card" data-category="especiales">
+          <div class="card-img-wrap">
+            <img src="https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=500&q=80" alt="Festival Chifero">
+          </div>
+          <div class="card-body">
+            <div>
+              <div class="card-title">Festival Chifero</div>
+              <div class="card-desc">Tallarín Taypá + Chaufa de Pollo + Kamlú o Chijaukay.</div>
+            </div>
+            <div class="card-footer">
+              <span class="price">S/ 79.50</span>
+              <button class="btn-add" onclick="addToCart('Festival Chifero', 79.50)">+ Agregar</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sopa 1 -->
+        <div class="menu-card" data-category="sopas">
+          <div class="card-img-wrap">
+            <img src="https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=500&q=80" alt="Sopa Tong">
+          </div>
+          <div class="card-body">
+            <div>
+              <div class="card-title">Sopa Tong Especial</div>
+              <div class="card-desc">Caldo concentrado con wantán, pollo, char siu, verduras y huevo codorniz.</div>
+            </div>
+            <div class="card-footer">
+              <span class="price">S/ 25.00</span>
+              <button class="btn-add" onclick="addToCart('Sopa Tong Especial', 25.00)">+ Agregar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOBRE CHEF TONG -->
+    <section class="about-section" id="nosotros">
+      <div class="about-img">
+        <img src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?auto=format&fit=crop&w=600&q=80" alt="Chef Juan Tong">
+      </div>
+      <div class="about-text">
+        <h3>Chef Juan Tong</h3>
+        <p>Con más de 20 años de trayectoria perfeccionando el arte del Wok, el Chef Juan Tong fusiona las técnicas ancestrales de la cocina cantonesa con los insumos y sabores tradicionales del Perú.</p>
+        <p>Ubicados en el corazón cultural de Barranco, brindamos una experiencia gastronómica que combina la tradición chifera con toques modernos.</p>
+        
+        <div class="mascot-badge">
+          <div>
+            <strong>Garantía de Sabor Imperial</strong>
+            <div style="font-size: 0.85rem; color: var(--text-muted);">Platos preparados al momento con ingredientes 100% frescos.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- CARRITO LATERAL (DRAWER) -->
+  <div class="overlay" id="overlay" onclick="toggleCart()"></div>
+  
+  <div class="cart-drawer" id="cartDrawer">
+    <div class="cart-header">
+      <h3>Tu Pedido</h3>
+      <button class="close-cart" onclick="toggleCart()">&times;</button>
+    </div>
+    
+    <div class="cart-items" id="cartItems">
+      <p style="text-align: center; color: var(--text-muted); margin-top: 40px;">Tu carrito está vacío.</p>
+    </div>
+
+    <div class="cart-footer">
+      <div class="total-row">
+        <span>Total:</span>
+        <span id="cartTotal">S/ 0.00</span>
+      </div>
+      <button class="btn-send-wa" onclick="sendWhatsApp()">
+        <i class="fa-brands fa-whatsapp" style="font-size: 1.3rem;"></i>
+        Enviar Pedido por WhatsApp
+      </button>
+    </div>
+  </div>
+
+  <!-- BOT CONVERSACIONAL (CHATBOT WIDGET) -->
+  <button class="chat-widget-btn" onclick="toggleChat()">
+    <i class="fa-solid fa-comments"></i>
+  </button>
+
+  <div class="chat-window" id="chatWindow">
+    <div class="chat-header">
+      <div class="chat-header-title">
+        <i class="fa-solid fa-robot"></i>
+        <div>
+          <h4>Asistente Chef Tong</h4>
+          <span>En línea • Toma de Pedidos</span>
+        </div>
+      </div>
+      <button class="chat-close" onclick="toggleChat()">&times;</button>
+    </div>
+
+    <div class="chat-body" id="chatBody">
+      <div class="chat-msg bot">
+        ¡Hola! 👋 Soy el asistente virtual del **Chifa Chef Tong**. ¿En qué puedo ayudarte hoy?
+        <div class="chat-quick-replies">
+          <button class="quick-btn" onclick="handleQuickReply('Ver Menú Ejecutivo')">🍱 Menú Ejecutivo</button>
+          <button class="quick-btn" onclick="handleQuickReply('Hacer un pedido')">🛒 Hacer Pedido</button>
+          <button class="quick-btn" onclick="handleQuickReply('Horarios y Ubicación')">📍 Horarios y Dirección</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="chat-footer">
+      <input type="text" class="chat-input" id="chatInput" placeholder="Escribe tu consulta o plato..." onkeypress="handleKeyPress(event)">
+      <button class="chat-send" onclick="sendMessage()"><i class="fa-solid fa-paper-plane"></i></button>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <img src="https://lh3.googleusercontent.com/d/1XyO3NnZ3Qz9EaXbKk0A_9Zp9-0L1bXp_" alt="Chef Tong">
+        <p>Auténtica cocina fusión chifa en el distrito de Barranco.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Horario de Atención</h4>
+        <p><i class="fa-solid fa-calendar"></i> Miércoles a Lunes</p>
+        <p><i class="fa-solid fa-clock"></i> 12:00 PM a 10:00 PM</p>
+        <p style="color: var(--gold-light);"><i class="fa-solid fa-circle-exclamation"></i> Martes Cerrado</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Ubicación & Envíos</h4>
+        <p><i class="fa-solid fa-map-location-dot"></i> Jr. Unión 140, Barranco, Lima</p>
+        <p><i class="fa-brands fa-whatsapp"></i> Delivery: 950 656 797 / 920 366 976</p>
+      </div>
+    </div>
+
+    <div class="copyright">
+      &copy; 2026 Chifa Chef Tong - Cocina Fusión. Todos los derechos reservados.
+    </div>
+  </footer>
+
+  <!-- SCRIPT LÓGICA DE INTERACCIÓN Y CHATBOT -->
+  <script>
+    let cart = [];
+
+    // Base de datos del bot
+    const menuItems = [
+      { id: 'kamlu', name: 'Menú Kamlú Wantán', price: 22.00, category: 'menu' },
+      { id: 'verduras', name: 'Menú Pollo c/ Verduras', price: 22.00, category: 'menu' },
+      { id: 'tallarin', name: 'Menú Tallarín Saltado', price: 22.00, category: 'menu' },
+      { id: 'chijaukay', name: 'Menú Chijaukay', price: 22.00, category: 'menu' },
+      { id: 'lomo', name: 'Menú Lomo Saltado', price: 27.50, category: 'menu' },
+      { id: 'wantan', name: 'Wantán Frito (1 Docena)', price: 19.00, category: 'carta' },
+      { id: 'chaufa', name: 'Arroz Chaufa Especial', price: 26.90, category: 'carta' },
+      { id: 'festival', name: 'Festival Chifero', price: 79.50, category: 'carta' },
+      { id: 'sopa', name: 'Sopa Tong Especial', price: 25.00, category: 'carta' },
+      { id: 'banquete', name: 'Banquete Familiar', price: 289.00, category: 'banquete' }
+    ];
+
+    function toggleCart() {
+      document.getElementById('cartDrawer').classList.toggle('open');
+      document.getElementById('overlay').classList.toggle('active');
+    }
+
+    function addToCart(title, price) {
+      const existing = cart.find(item => item.title === title);
+      if (existing) {
+        existing.qty++;
+      } else {
+        cart.push({ title, price, qty: 1 });
+      }
+      updateCartUI();
+    }
+
+    function updateCartUI() {
+      const cartItemsContainer = document.getElementById('cartItems');
+      const cartCount = document.getElementById('cartCount');
+      const cartTotal = document.getElementById('cartTotal');
+
+      let total = 0;
+      let count = 0;
+
+      if (cart.length === 0) {
+        cartItemsContainer.innerHTML = '<p style="text-align: center; color: var(--text-muted); margin-top: 40px;">Tu carrito está vacío.</p>';
+      } else {
+        cartItemsContainer.innerHTML = '';
+        cart.forEach((item, index) => {
+          total += item.price * item.qty;
+          count += item.qty;
+
+          const itemEl = document.createElement('div');
+          itemEl.className = 'cart-item';
+          itemEl.innerHTML = `
+            <div>
+              <div class="cart-item-title">${item.title}</div>
+              <div class="cart-item-price">S/ ${item.price.toFixed(2)} x ${item.qty}</div>
+            </div>
+            <div>
+              <button onclick="changeQty(${index}, -1)" style="padding:2px 8px;">-</button>
+              <button onclick="changeQty(${index}, 1)" style="padding:2px 8px;">+</button>
+            </div>
+          `;
+          cartItemsContainer.appendChild(itemEl);
+        });
+      }
+
+      cartCount.textContent = count;
+      cartTotal.textContent = `S/ ${total.toFixed(2)}`;
+    }
+
+    function changeQty(index, delta) {
+      cart[index].qty += delta;
+      if (cart[index].qty <= 0) {
+        cart.splice(index, 1);
+      }
+      updateCartUI();
+    }
+
+    function filterMenu(category) {
+      const buttons = document.querySelectorAll('.tab-btn');
+      buttons.forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+
+      const cards = document.querySelectorAll('#cartaGrid .menu-card');
+      cards.forEach(card => {
+        if (category === 'todos' || card.dataset.category === category) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    function sendWhatsApp() {
+      if (cart.length === 0) {
+        alert('Por favor agrega platos a tu pedido.');
+        return;
+      }
+
+      let msg = '¡Hola Chifa Chef Tong! Deseo realizar el siguiente pedido:%0A%0A';
+      let total = 0;
+      cart.forEach(item => {
+        msg += `• ${item.qty}x ${item.title} - S/ ${(item.price * item.qty).toFixed(2)}%0A`;
+        total += item.price * item.qty;
+      });
+      msg += `%0A*Total: S/ ${total.toFixed(2)}*%0A%0A¿Me confirman el tiempo estimado de entrega?`;
+
+      window.open(`https://wa.me/51950656797?text=${msg}`, '_blank');
+    }
+
+    /* LÓGICA DEL CHATBOT CONVERSACIONAL */
+    function toggleChat() {
+      const chatWindow = document.getElementById('chatWindow');
+      chatWindow.classList.toggle('active');
+    }
+
+    function handleKeyPress(e) {
+      if (e.key === 'Enter') {
+        sendMessage();
+      }
+    }
+
+    function handleQuickReply(text) {
+      document.getElementById('chatInput').value = text;
+      sendMessage();
+    }
+
+    function appendUserMessage(text) {
+      const chatBody = document.getElementById('chatBody');
+      const msg = document.createElement('div');
+      msg.className = 'chat-msg user';
+      msg.textContent = text;
+      chatBody.appendChild(msg);
+      chatBody.scrollTop = chatBody.scrollHeight;
+    }
+
+    function appendBotMessage(text, quickReplies = []) {
+      const chatBody = document.getElementById('chatBody');
+      const msg = document.createElement('div');
+      msg.className = 'chat-msg bot';
+      msg.innerHTML = text;
+
+      if (quickReplies.length > 0) {
+        const repliesContainer = document.createElement('div');
+        repliesContainer.className = 'chat-quick-replies';
+        quickReplies.forEach(qr => {
+          const btn = document.createElement('button');
+          btn.className = 'quick-btn';
+          btn.textContent = qr.label;
+          btn.onclick = () => {
+            if (qr.action) qr.action();
+            else handleQuickReply(qr.value || qr.label);
+          };
+          repliesContainer.appendChild(btn);
+        });
+        msg.appendChild(repliesContainer);
+      }
+
+      chatBody.appendChild(msg);
+      chatBody.scrollTop = chatBody.scrollHeight;
+    }
+
+    function sendMessage() {
+      const input = document.getElementById('chatInput');
+      const text = input.value.trim();
+      if (!text) return;
+
+      appendUserMessage(text);
+      input.value = '';
+
+      setTimeout(() => {
+        processBotResponse(text.toLowerCase());
+      }, 500);
+    }
+
+    function processBotResponse(lowerText) {
+      if (lowerText.includes('menú') || lowerText.includes('menu') || lowerText.includes('ejecutivo')) {
+        appendBotMessage(
+          'Nuestros **Menús Ejecutivos** cuestan S/ 22.00 e incluyen entrada (Sopa Wantán o Wantán frito). ¿Te gustaría agregar alguno a tu pedido?',
+          [
+            { label: '➕ Kamlú Wantán (S/ 22)', action: () => { addToCart('Menú Kamlú Wantán', 22); appendBotMessage('¡Añadido Kamlú Wantán a tu carrito!'); } },
+            { label: '➕ Pollo c/ Verduras (S/ 22)', action: () => { addToCart('Menú Pollo c/ Verduras', 22); appendBotMessage('¡Añadido Pollo con Verduras!'); } },
+            { label: '➕ Chijaukay (S/ 22)', action: () => { addToCart('Menú Chijaukay', 22); appendBotMessage('¡Añadido Chijaukay al carrito!'); } }
+          ]
+        );
+      } else if (lowerText.includes('horario') || lowerText.includes('donde') || lowerText.includes('ubicacion') || lowerText.includes('direccion')) {
+        appendBotMessage('📍 Estamos ubicados en **Jr. Unión 140, Barranco**.<br>🕒 Atendemos de **Miércoles a Lunes de 12:00 PM a 10:00 PM** (Martes cerrado).');
+      } else if (lowerText.includes('chaufa') || lowerText.includes('arroz')) {
+        appendBotMessage('Tenemos nuestro delicioso **Arroz Chaufa Especial** salteado al Wok con pollo, cerdo char siu y langostinos por S/ 26.90.', [
+          { label: '➕ Agregar Chaufa Especial', action: () => { addToCart('Arroz Chaufa Especial', 26.90); appendBotMessage('¡Chaufa Especial agregado!'); } }
+        ]);
+      } else if (lowerText.includes('pedido') || lowerText.includes('comprar') || lowerText.includes('pagar') || lowerText.includes('carrito')) {
+        if (cart.length === 0) {
+          appendBotMessage('Tu carrito está vacío actualmente. ¿Qué te gustaría ordenar?');
+        } else {
+          let summary = 'Aquí tienes el resumen de tu pedido:<br><ul>';
+          let total = 0;
+          cart.forEach(item => {
+            summary += `<li>${item.qty}x ${item.title} - S/ ${(item.price * item.qty).toFixed(2)}</li>`;
+            total += item.price * item.qty;
+          });
+          summary += `</ul><br><strong>Total: S/ ${total.toFixed(2)}</strong>`;
+          appendBotMessage(summary, [
+            { label: '📲 Enviar a WhatsApp', action: () => sendWhatsApp() }
+          ]);
+        }
+      } else {
+        appendBotMessage('Puedo ayudarte a tomar tu pedido o brindarte información de la carta. ¿Qué plato deseas agregar?', [
+          { label: '🍱 Ver Menú', value: 'Ver Menú Ejecutivo' },
+          { label: '🍜 Ver Chaufa', value: 'Arroz Chaufa' },
+          { label: '🛒 Finalizar Pedido', value: 'Hacer un pedido' }
+        ]);
+      }
+    }
+  </script>
+</body>
+</html>
