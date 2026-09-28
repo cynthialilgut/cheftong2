@@ -618,6 +618,15 @@
       color: #8C8075;
     }
 
+    /* AJUSTES FORZADOS PARA N8N CHAT INPUT */
+    .n8n-chat-inputs, 
+    div[class*="chat-input-container"], 
+    div[class*="chat-inputs"] {
+      display: flex !important;
+      visibility: visible !important;
+      opacity: 1 !important;
+    }
+
     @media (max-width: 768px) {
       .about-section {
         grid-template-columns: 1fr;
@@ -1048,21 +1057,13 @@
     }
   </script>
 
-  <!-- SCRIPT DEL INTEGRACIÓN DE N8N CHATBOT -->
+  <!-- SCRIPT DEL INTEGRACIÓN DE N8N CHATBOT (CORREGIDO) -->
   <script type="module">
     import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
 
     createChat({
       webhookUrl: 'https://cynthiaxyz.app.n8n.cloud/webhook/4ecfe80a-0d29-409f-b305-42bc212f9fc4/chat',
-      webhookConfig: {
-        method: 'POST',
-        headers: {}
-      },
-      target: '#n8n-chat',
       mode: 'window',
-      chatInputKey: 'chatInput',
-      chatSessionKey: 'sessionId',
-      metadata: {},
       showWelcomeScreen: false,
       defaultLanguage: 'es',
       initialMessages: [
